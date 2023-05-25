@@ -56,5 +56,9 @@
   },
   "developers": "Developers.",
   "explore": "Start exploring",
-  "user": "User"
+  "user": "User",
+  "schema-error": "Failed to get schema",
+  "error": "Error!",
+  "error-happened": "Something went wrong",
+  "refresh": "Reload Page"
 }
