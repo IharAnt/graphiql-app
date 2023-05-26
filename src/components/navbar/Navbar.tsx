@@ -8,7 +8,6 @@ import styles from './Navbar.module.scss';
 import { ReactComponent as HamburgerIcon } from '../../assets/icons/hamburger-icon.svg';
 import { ReactComponent as CloseIcon } from '../../assets/icons/close-icon.svg';
 import { auth } from '../../configs/FirebaseConfig';
-import { SpinnerLoader } from '../spinner-loader/SpinnerLoader';
 
 const Navbar: FC = () => {
   const [isNavBurgerOpen, setIsNavBurgerOpen] = useState(false);
@@ -31,10 +30,6 @@ const Navbar: FC = () => {
     };
   }, [menuRef]);
 
-  if (isLoading) {
-    return <SpinnerLoader />;
-  }
-
   return (
     <>
       <HamburgerIcon
@@ -55,7 +50,7 @@ const Navbar: FC = () => {
         <NavLink className={defineActive} to={'/welcome'}>
           {t('welcome-page')}
         </NavLink>
-        {user && (
+        {!isLoading && user && (
           <NavLink className={defineActive} to={'/main'}>
             {t('main-page')}
           </NavLink>
