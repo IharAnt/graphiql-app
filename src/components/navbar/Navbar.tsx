@@ -2,16 +2,18 @@ import { FC, useEffect, useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
-
-import { ReactComponent as HamburgerIcon } from '../../assets/icons/hamburger-icon.svg';
-import { ReactComponent as CloseIcon } from '../../assets/icons/close-icon.svg';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 import styles from './Navbar.module.scss';
+import { ReactComponent as HamburgerIcon } from '../../assets/icons/hamburger-icon.svg';
+import { ReactComponent as CloseIcon } from '../../assets/icons/close-icon.svg';
+import { auth } from '../../configs/FirebaseConfig';
 
 const Navbar: FC = () => {
   const [isNavBurgerOpen, setIsNavBurgerOpen] = useState(false);
   const menuRef = useRef<HTMLElement>(null);
   const { t } = useTranslation();
+  const [user, isLoading] = useAuthState(auth);
 
   const defineActive = ({ isActive }: { isActive: boolean }) =>
     classNames(styles.navLink, { [styles.active]: isActive });
@@ -48,9 +50,11 @@ const Navbar: FC = () => {
         <NavLink className={defineActive} to={'/welcome'}>
           {t('welcome-page')}
         </NavLink>
-        <NavLink className={defineActive} to={'/main'}>
-          {t('main-page')}
-        </NavLink>
+        {!isLoading && user && (
+          <NavLink className={defineActive} to={'/main'}>
+            {t('main-page')}
+          </NavLink>
+        )}
       </nav>
     </>
   );

@@ -1,13 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { queryMock } from '../../configs/constants';
 import { IPlaygroundState } from './types';
 
 const initialState: IPlaygroundState = {
-  queryEditorValue: '',
-  variablesEditorValue: '',
+  queryEditorValue: queryMock.query,
+  variablesEditorValue: queryMock.variables,
   headersEditorValue: '',
   schemaIsOpen: false,
-  isParamsOpen: false,
+  isParamsOpen: true,
   responseEditorValue: '',
   paramsEditor: 'variables',
   status: '',

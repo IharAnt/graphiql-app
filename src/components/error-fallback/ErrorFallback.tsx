@@ -15,7 +15,7 @@ export const ErrorFallback: FC<FallbackProps> = ({ error, resetErrorBoundary }) 
       <h2 className={styles.errorTitle}>{t('error')}</h2>
 
       <Message isError>
-        {t('error-happened')}: {getErrorMessage(error)}
+        {t('error-happened')}! {getErrorMessage(error)}
       </Message>
 
       <RectangularButton onClick={resetErrorBoundary}>{t('refresh')}</RectangularButton>
