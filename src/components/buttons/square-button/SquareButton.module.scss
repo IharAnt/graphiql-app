@@ -1,0 +1,33 @@
+.square-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  font-size: 16px;
+  color: $color-main;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &:hover {
+    text-shadow: 0 0 1px $color-main;
+    background-color: $color-secondary;
+  }
+
+  &:active {
+    outline: 2px solid $color-main;
+  }
+
+  @include mobile {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.square-button-active {
+  outline: 2px solid $color-main;
+}

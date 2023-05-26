@@ -1,0 +1,60 @@
+.header {
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  top: 0;
+  left: 0;
+  max-height: $header-max-height;
+  background-color: $color-primary;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  transition: background 0.5s, padding-top 0.4s, padding-bottom 0.4s;
+
+  .language {
+    background-color: $color-secondary;
+    height: 40px;
+    border-radius: 8px;
+  }
+
+  .auth {
+    background-color: $color-secondary;
+  }
+
+  @media (hover: none) {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  @include mobile {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.sticky {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background-color: $color-secondary;
+
+  .inverted {
+    background-color: $color-primary;
+  }
+}
+
+.container {
+  height: calc($header-max-height - 30px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  @include mobile {
+    height: calc($header-max-height - 40px);
+  }
+}
+
+.header-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
